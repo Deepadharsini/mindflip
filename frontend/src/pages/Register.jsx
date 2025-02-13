@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();  // Initialize useNavigate for redirecting
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -14,7 +16,8 @@ const Register = () => {
         email,
         password,
       });
-      alert(res.data.message);
+      alert("Registration successful! Please log in.");
+      navigate("/login");  // Redirect to the login page after successful registration
     } catch (err) {
       alert(err.response?.data?.message || "Something went wrong.");
     }
@@ -30,14 +33,12 @@ const Register = () => {
           Welcome to MindFlip
         </h2>
         <p className="text-center text-gray-600 mb-6">
-          Take the first step toward better mental health.
+          Take the first step toward better mental health by registering below.
         </p>
 
         {/* Username Input */}
         <div className="mb-4">
-          <label className="block text-gray-700 font-semibold mb-2">
-            Username
-          </label>
+          <label className="block text-gray-700 font-semibold mb-2">Username</label>
           <input
             type="text"
             placeholder="Enter your username"
@@ -63,9 +64,7 @@ const Register = () => {
 
         {/* Password Input */}
         <div className="mb-6">
-          <label className="block text-gray-700 font-semibold mb-2">
-            Password
-          </label>
+          <label className="block text-gray-700 font-semibold mb-2">Password</label>
           <input
             type="password"
             placeholder="Enter your password"
@@ -79,13 +78,13 @@ const Register = () => {
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition duration-300"
+          className="w-full bg-blue-800 text-white font-semibold py-3 rounded-lg hover:bg-blue-400 transition duration-300"
         >
           Register
         </button>
         <p className="text-sm text-center text-gray-600 mt-4">
           Already have an account?{" "}
-          <span className="text-blue-500 hover:underline cursor-pointer">
+          <span className="text-blue-500 hover:underline cursor-pointer" onClick={() => navigate("/login")}>
             Login
           </span>
         </p>
