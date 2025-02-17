@@ -32,7 +32,8 @@ const Home = () => {
       const textToSend = feedbackText || selectedMood.label;
 
       try {
-        const response = await fetch("https://233b-34-147-69-34.ngrok-free.app/predict", {
+        // Corrected the endpoint to /predict
+        const response = await fetch("https://f1df-35-196-54-72.ngrok-free.app/predict", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
