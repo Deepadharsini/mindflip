@@ -10,7 +10,7 @@ const Login = ({ setIsAuthenticated }) => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/login", { email, password });
+      const res = await axios.post(`${import.meta.env.VITE_EXPRESS_SERVER}/api/login`, { email, password });
       alert("Login successful!");
       setIsAuthenticated(true); // Set the user as authenticated
       navigate("/home"); // Redirect to home page

@@ -32,8 +32,8 @@ const Home = () => {
       const textToSend = feedbackText || selectedMood.label;
 
       try {
-        // Corrected the endpoint to /predict
-        const response = await fetch("https://f1df-35-196-54-72.ngrok-free.app/predict", {
+        // Fetch from the Python backend using environment variable for the URL
+        const response = await fetch(`${import.meta.env.VITE_PYTHON_BACKEND}/predict`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
