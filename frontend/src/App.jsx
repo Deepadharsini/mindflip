@@ -5,7 +5,9 @@ import Home from "./pages/Home"; // Home page component
 import Recommendations from "./pages/Recommendations"; // Recommendations page component
 import { useState } from "react";
 import Navbar from "./pages/Navbar"; // Navbar component
-
+import Books from "./pages/Books";
+import Movies from "./pages/Movies";
+import Songs from "./pages/Songs";
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
     localStorage.getItem("authToken") ? true : false
@@ -25,6 +27,9 @@ function App() {
             <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
             <Route path="/home" element={isAuthenticated ? <Home /> : <Navigate to="/login" />} />
             <Route path="/recommendations" element={<Recommendations />} /> {/* No auth check here */}
+            <Route path="/books" element={<Books />} />
+            <Route path="/movies" element={<Movies />} />
+            <Route path="/songs" element={<Songs />} />
           </Routes>
         </main>
         <footer className="bg-gray-800 text-gray-200 py-4 text-center">
