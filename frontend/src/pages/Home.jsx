@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
-
+import bghome from "../assets/bghome.jpg";
 const Home = () => {
   const [sliderValue, setSliderValue] = useState(0);
   const [feedbackText, setFeedbackText] = useState("");
@@ -59,13 +59,22 @@ const Home = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-blue-200 p-4">
-      <h1 className="text-4xl font-extrabold text-gray-900 mb-2">Welcome to MindFlip</h1>
-      <p className="text-lg text-gray-600 mb-6 text-center">
+    <div
+      className="flex flex-col items-center justify-center min-h-screen p-4 bg-cover bg-center"
+      style={{
+        backgroundImage: `url(${bghome})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        width: "100vw",
+        height: "100vh",
+      }}
+    >
+      <h1 className="text-4xl font-extrabold text-white mb-2">Welcome to MindFlip</h1>
+      <p className="text-lg font-bold text-white mb-6 text-center ">
         A personalized mental health recommendation system just for you!
       </p>
 
-      <div className="bg-blue-200 p-6 rounded-xl shadow-2xl w-full max-w-lg flex flex-col items-center">
+      <div className="bg-gray-300 p-6 rounded-xl shadow-2xl w-full max-w-lg flex flex-col items-center">
         <h2 className="text-xl font-semibold text-gray-800 mb-4">How do you feel?</h2>
 
         {/* Slider Container */}
@@ -76,14 +85,14 @@ const Home = () => {
             max="100"
             value={sliderValue}
             onChange={handleSliderChange}
-            className="w-full h-3 rounded-lg appearance-none cursor-pointer"
+            className="w-full h-3 rounded-lg  cursor-pointer"
             style={{
               background: `linear-gradient(to right, rgb(39, 8, 116) ${sliderValue}%, #ccc ${sliderValue}%)`,
             }}
           />
 
           {/* Mood Emojis Below Slider */}
-          <div className="flex justify-between px-2 text-lg text-gray-800 mt-4">
+          <div className="flex justify-between font-bold px-2 text-lg text-gray-800 mt-4">
             {moodOptions.map((mood, index) => (
               <div key={index} className="flex flex-col items-center">
                 <span className="text-3xl">{mood.emoji}</span>
@@ -105,7 +114,7 @@ const Home = () => {
         {/* Submit Button */}
         <button
           onClick={handleSubmit}
-          className="mt-6 w-60 py-3 bg-indigo-600 text-white rounded-lg shadow-md hover:bg-indigo-700 transition-all duration-300"
+          className="mt-6 w-60 py-3 bg-black text-white rounded-lg shadow-md hover:bg-indigo-700 transition-all duration-300"
         >
           Submit
         </button>

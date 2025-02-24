@@ -11,7 +11,7 @@ const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
   };
 
   return (
-    <header className="bg-blue-900 text-white shadow-md h-20 relative">
+    <header className="bg-black text-white shadow-md h-20 relative">
       <nav className="container mx-auto flex items-center h-full">
         <div className="absolute left-0 top-1/2 -translate-y-1/2">
           <img src="/loggo.png" alt="MindFlip Logo" className="max-h-24 w-44" />
