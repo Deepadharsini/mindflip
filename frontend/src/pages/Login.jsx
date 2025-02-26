@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import bgImage from "../assets/bg.jpg"; // Ensure correct import for Vite
 
 const Login = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState("");
@@ -20,12 +21,15 @@ const Login = ({ setIsAuthenticated }) => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-blue-300">
+    <div 
+      className="flex justify-center items-center min-h-screen bg-cover bg-center"
+      style={{ backgroundImage: `url(${bgImage})` }}
+    >
       <form
         onSubmit={handleLogin}
-        className="p-8 bg-blue-200 rounded-2xl shadow-lg w-full max-w-md"
+        className="p-8 bg-white rounded-2xl shadow-lg w-full max-w-md"
       >
-        <h2 className="text-3xl font-bold mb-6 text-blue-700 text-center">
+        <h2 className="text-3xl font-bold mb-6 text-black text-center">
           Welcome to MindFlip
         </h2>
         <p className="text-center text-gray-600 mb-6">
@@ -40,7 +44,7 @@ const Login = ({ setIsAuthenticated }) => {
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 "
+            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           />
         </div>
@@ -61,15 +65,15 @@ const Login = ({ setIsAuthenticated }) => {
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition duration-300"
+          className="w-full bg-black text-white font-semibold py-3 rounded-lg hover:bg-blue-900 transition duration-300"
         >
           Login
         </button>
         <p className="text-sm text-center text-gray-600 mt-4">
           Do not have an account?{" "}
           <span
-            className="text-blue-500 hover:underline cursor-pointer"
-            onClick={() => navigate("/register")} // Navigate to Register page
+            className="text-black hover:underline cursor-pointer"
+            onClick={() => navigate("/register")}
           >
             Register
           </span>
